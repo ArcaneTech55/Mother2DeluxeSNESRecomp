@@ -1,0 +1,26 @@
+# ROM identity for Mother 2 Deluxe — the single source of truth.
+#
+# Read by three consumers, so a revision change is made once, here:
+#   - the build   (CMake generates snesrecomp_rom_identity.h from this file)
+#   - tools/regen.sh
+#   - .github/workflows/release.yml
+#
+# Format is `key = value`, one per line; `#` starts a comment. Values may be
+# quoted. Leaving a digest empty means the build cannot verify a ROM it is
+# handed — it will say so rather than accept it.
+
+display_name    = Mother 2 Deluxe
+rom_file        = Mother 2 (Deluxe v3.0.16)(5).smc
+# Every digest of the bare image (copier header stripped), so the Retro
+# catalog can take a submission's identity from this file rather than ask
+# the submitter to hash the ROM again. The build verifies on crc32/sha256.
+expected_crc32  = a805153b
+expected_md5    = 31ef2a593975bffc4203605666da7d50
+expected_sha1   = 89ef45acffba31a99b976f12664f5ca2338f276c
+expected_sha256 = 635b4a148cfd1abf8cb43b37726b094183a81a92d11043090d7df1fc391a0f1a
+rom_size        = 6291456
+mapping         = hirom
+region          = USA
+# What a mod package's [[target]] game_id must name to apply to this title
+# (snesrecomp/docs/MOD_PACKAGES.md). Stable across revisions on purpose.
+game_id         = mother2deluxe-usa
